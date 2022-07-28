@@ -6,23 +6,14 @@ import java.util.List;
 
 class DrawingBoard extends JPanel {
 
-    private static final int TOTAL_RECTANGLES = 5;
     private static final int WIDTH = 400;
     private static final int HEIGHT = 300;
-    private static final int RADIUS = 50;
-    private static final int X = 50;
-    private static final int Y = 50;
-    private int counter;
-    private int moveXBy;
-    private int moveYBy;
-    private boolean isActive;
-    private int count;
-    private List<GameFigure> figures;
+    private List<Moveable> figures;
     private int figureIndex = 0;
     private int triesCount = 0;
     private int guessedCount = 0;
 
-    public void setFigures(List<GameFigure> figures) {
+    public void setFigures(List<Moveable> figures) {
         this.figures = figures;
     }
 
@@ -36,15 +27,11 @@ class DrawingBoard extends JPanel {
         repaint(300,10,400,70);
     }
 
-    public boolean setState (int figureIndex) {
-        isActive = true;
-
+    public void tick(int figureIndex) {
         this.figureIndex = figureIndex;
-        GameFigure figure = (GameFigure) figures.get(figureIndex);
+        Moveable figure = (Moveable) figures.get(figureIndex);
         figure.moveBy(0, 10);
         repaint(200,10,40,250);
-
-        return isActive;
     }
 
     private void drawFigure(GameFigure figure, Graphics g) {

@@ -34,24 +34,5 @@ public class Circle extends Figure implements GameFigure {
         g.fillOval(x, y, 2*radius, 2*radius);
     }
 
-    @Override
-    public void moveBy(int x, int y) {
-        this.x = this.x + x;
-        this.y = this.y + y;
-    }
-
-    @Override
-    public void rotate(int speed) {
-
-    }
-
-    @Override
-    public boolean isCoordsIn(int x, int y) {
-        if (x<this.x) return false;
-        if (y<this.y) return false;
-        if (x>this.x + 2*this.radius) return false;
-        if (y>this.y + 2*this.radius) return false;
-        return true;
-    }
 }
 

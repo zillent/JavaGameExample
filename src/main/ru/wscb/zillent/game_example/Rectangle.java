@@ -44,23 +44,4 @@ public class Rectangle extends Figure implements GameFigure{
         g.fillRect(x, y, width, height);
     }
 
-    @Override
-    public void moveBy(int x, int y) {
-        this.x = this.x + x;
-        this.y = this.y + y;
-    }
-
-    @Override
-    public void rotate(int speed) {
-
-    }
-
-    @Override
-    public boolean isCoordsIn(int x, int y) {
-        if (x<this.x) return false;
-        if (y<this.y) return false;
-        if (x>this.x + this.width) return false;
-        if (y>this.y + this.height) return false;
-        return true;
-    }
 }
